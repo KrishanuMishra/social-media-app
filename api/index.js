@@ -8,11 +8,10 @@ import path from 'path';
 dotenv.config();
 
 mongoose
-  .connect(process.env.DB)
-  .then(() => {
-    console.log('Connected to MongoDB');
+  .connect(process.env.DB).then(()=>{
+    console.log("Connected to DB.")
   });
-  
+
 const __dirname = path.resolve();
 
 const app = express();
