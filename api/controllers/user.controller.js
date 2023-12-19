@@ -54,3 +54,8 @@ export const deleteUser = async (req, res, next) => {
   }
 
 }
+
+export const allUsers = async (req,res,next)=>{
+    const result = await User.find({});
+    res.status(200).json(result);
+}
