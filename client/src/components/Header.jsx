@@ -21,7 +21,7 @@ export default function Header() {
   };
   return (
     <div
-      className={`bg-${isDarkTheme ? "black" : "slate-200"} text-${
+      className={`${isDarkTheme ? "bg-gray-900" : "bg-slate-200"} text-${
         isDarkTheme ? "white" : "black"
       }`}
     >      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
