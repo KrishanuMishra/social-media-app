@@ -5,15 +5,15 @@ export default function Home() {
 
   var heading = 800;
   var content = 700;
-  var theme = "white";
+  var theme = 100;
 
   if (isDarkTheme) {
     heading = content = 100;
-    theme = "black";
+    theme = 950;
   }
 
   return (
-    <div className={`bg-${theme} h-screen`}>
+    <div className={`bg-slate-${theme} h-screen`}>
       <div className="px-4 py-12 max-w-2xl mx-auto">
         <h1 className={`text-3xl font-bold  mb-4 text-slate-${heading}`}>
           Welcome to my Auth App!

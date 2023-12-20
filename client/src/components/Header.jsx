@@ -24,12 +24,11 @@ export default function Header() {
       className={`bg-${isDarkTheme ? "black" : "slate-200"} text-${
         isDarkTheme ? "white" : "black"
       }`}
-    >
-      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
+    >      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1
             className={` font-bold text-4xl text-${
-              isDarkTheme ? "bg-slate-950" : "slate-700"
+              isDarkTheme ? "slate-50" : "slate-700"
             }`}
           >
             DOSTi

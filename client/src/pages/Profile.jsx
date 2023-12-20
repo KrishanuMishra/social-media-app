@@ -112,7 +112,7 @@ export default function Profile() {
   return (
     <div
       className={`${
-        isDarkTheme ? "bg-black || text-white" : "bg-white || text-black"
+        isDarkTheme ? "bg-slate-950 || text-slate-100" : "bg-slate-100 || text-slate-800"
       } h-screen`}
     >
       <div className="p-3 max-w-lg mx-auto ">
@@ -157,7 +157,7 @@ export default function Profile() {
             type="text"
             id="username"
             placeholder="Username"
-            className="bg-slate-100 rounded-lg p-3"
+            className="text-black rounded-lg p-3"
             onChange={handleChange}
           />
           <input
@@ -165,14 +165,14 @@ export default function Profile() {
             type="email"
             id="email"
             placeholder="Email"
-            className="bg-slate-100 rounded-lg p-3"
+            className="text-black rounded-lg p-3"
             onChange={handleChange}
           />
           <input
             type="password"
             id="password"
             placeholder="Password"
-            className="bg-slate-100 rounded-lg p-3"
+            className="text-black rounded-lg p-3"
             onChange={handleChange}
           />
           <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">

@@ -9,7 +9,7 @@ const Settings = () => {
 
   return (
     <div
-      className={`bg-${isDarkTheme ? "black" : "white"} text-${
+      className={`${isDarkTheme ? "bg-slate-950" : "bg-slate-100"} text-${
         isDarkTheme ? "white" : "black"
       } px-4 py-12 mx-auto h-screen`}
     >
