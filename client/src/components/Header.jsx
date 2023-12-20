@@ -3,16 +3,6 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 export default function Header() {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-
-  var DropdownTheme =
-    "text-black hover:bg-gray-200 hover:text-black block px-4 py-2";
-
-  if (isDarkTheme) {
-    DropdownTheme =
-      "text-white hover:bg-gray-200 hover:text-black block px-4 py-2";
-  }
-
   const { currentUser } = useSelector((state) => state.user);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -20,19 +10,10 @@ export default function Header() {
     setDropdownOpen(!isDropdownOpen);
   };
   return (
-    <div
-      className={`${isDarkTheme ? "bg-gray-900" : "bg-slate-200"} text-${
-        isDarkTheme ? "white" : "black"
-      }`}
-    >      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
+    <div className="slate-200">
+      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1
-            className={` font-bold text-4xl text-${
-              isDarkTheme ? "slate-50" : "slate-700"
-            }`}
-          >
-            DOSTi
-          </h1>
+          <h1 className="font-bold text-4xl text-slate-700">DOSTi</h1>
         </Link>
         <ul className="flex gap-4">
           <Link to="/">
@@ -61,18 +42,24 @@ export default function Header() {
           )}
 
           {isDropdownOpen && (
-            <div
-              className={`bg-${isDarkTheme ? "black" : "white"} 
-              } absolute mt-8 w-48 rounded-md shadow-lg z-20 `}
-            >
+            <div className="bg-white absolute mt-8 w-48 rounded-md shadow-lg z-20">
               {/* Dropdown content goes here */}
-              <Link to="/profile" className={`${DropdownTheme}`}>
+              <Link
+                to="/profile"
+                className="text-black hover:bg-gray-200 hover:text-black block px-4 py-2"
+              >
                 Update Profile
               </Link>
-              <Link to="/my-posts" className={`${DropdownTheme}`}>
+              <Link
+                to="/my-posts"
+                className="text-black hover:bg-gray-200 hover:text-black block px-4 py-2"
+              >
                 My Posts
               </Link>
-              <Link to="/settings" className={`${DropdownTheme}`}>
+              <Link
+                to="/settings"
+                className="text-black hover:bg-gray-200 hover:text-black block px-4 py-2"
+              >
                 Settings
               </Link>
             </div>
