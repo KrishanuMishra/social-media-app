@@ -1,11 +1,40 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux';
+import {Link} from 'react-router-dom'
 
 const MyPosts = () => {
   const { currentUser} = useSelector((state) => state.user);
   const [text,setText] = useState('');
   const [image,setImage] = useState([]);
+
+  const [myPosts,setMyPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/post/${currentUser._id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          setMyPosts(data);
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
@@ -36,8 +65,10 @@ const MyPosts = () => {
         <textarea defaultValue={text} onChange={(e)=>{setText(e.target.value);}} type="text" className="bg-slate-200 p-4 rounded-lg h-44"/>
         <button onClick={handleSubmit} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>Add Post</button>
     </div>
+    <div className='px-4 py-12 max-w-2xl mx-auto flex flex-col gap-4'>
     </div>
-  )
+    </div>
+    )
 }
 
 export default MyPosts
